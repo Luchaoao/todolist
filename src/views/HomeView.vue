@@ -1,33 +1,42 @@
-<script setup>
-
+<script>
+export default {
+};
 </script>
 
 <template>
-  <main>
-    <div class="bg-blue-400 w-full h-screen">
-        <div class="content">
-            <div class="add">
-                <input type="text" id="" class="add-text" placeholder="請輸入內容">
-                <div class="add-Todo" type="button">新增</div>
-            </div>
-            <div class="complete-list">
-                <div class="all" data-search="all">全部</div>
-                <div class="complete" data-search="complete">已執行</div>
-                <div class="incomplete" data-search="incomplete">未執行</div>
-            </div>
-            <table class="todo">
-                <thead>
-                    <tr>
-                        <th>執行</th>
-                        <th>事項</th>
-                        <th>功能</th>
-                    </tr>
-                </thead>
-                <tbody class="data-show"></tbody>
-            </table>
-            <div class="enter-to-local" type="button">save local</div>
+  <div class=" w-full h-screen flex justify-center items-center">
+    <div class="w-[75%] h-[75%] flex justify-center items-center bg-slate-400 flex-col p-5">
+      <div class="w-full h-[10%]">
+        <input type="text" id="" class="add-text w-[75%]" placeholder="請輸入內容">
+        <div class="add-Todo" type="button">新增</div>
+      </div>
+      <div class="w-full h-[10%] flex gap-3">
+        <div class="bg-gray-600 hover:bg-gray-300" data-search="all">全部</div>
+        <div class="bg-gray-600 hover:bg-gray-300" data-search="complete">已執行</div>
+        <div class="bg-gray-600 hover:bg-gray-300" data-search="incomplete">未執行</div>
+      </div>
+      <div class="w-full h-[70%]">
+        <div class="flex justify-around ">
+          <div class="m1 w-1/3">執行</div>
+          <div class="m1 w-1/3">事項</div>
+          <div class="ma w-1/3">功能</div>
         </div>
+        <div class="data-show">
+          <div class="flex justify-around">
+            <div class="w-1/3">
+              <input type="checkbox">
+            </div>
+            <div class="m1 w-1/3">第一筆</div>
+            <div class="btn-box w-1/3 m1 flex gap-2">
+              <button class="bg-gray-600">編輯</button>
+              <button class="bg-gray-600">刪除</button>
+            </div>
+          </div>
+        </div>
+        <button class="enter-to-local bg-gray-600" type="button">存進local</button>
+      </div>
     </div>
-
-  </main>
+  </div>
 </template>
+
+<style scoped></style>

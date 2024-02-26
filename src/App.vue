@@ -1,11 +1,5 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <RouterView />
+  <div class="flex justify-center items-center min-h-[100dvh] px-5 py-2 text-white">
+    <RouterView />
+  </div>
 </template>
-
-<style scoped>
-
-</style>
