@@ -1,19 +1,34 @@
 <script>
 export default {
+  data() {
+		return {
+			selectedTab:'',
+      arr:[],
+		};
+	},
+  methods: {
+		// 篩選使用者資料
+		filterUserData() {
+			if (!this.selectedTab) {
+				return this.arr;
+			}
+			return this.arr.filter(arr => arr.checkbox === this.selectedTab);
+		},
+	},
 };
 </script>
 
 <template>
   <div class=" w-full h-screen flex justify-center items-center">
-    <div class="w-[75%] h-[75%] flex justify-center items-center bg-slate-400 flex-col p-5">
-      <div class="w-full h-[10%]">
-        <input type="text" id="" class="add-text w-[75%]" placeholder="請輸入內容">
-        <div class="add-Todo" type="button">新增</div>
+    <div class="w-[75%] h-[90%] flex justify-center items-center bg-slate-400 flex-col p-5 rounded">
+      <div class="w-full h-[20px] flex">
+        <input type="text" id="" class="w-[75%] rounded p-1" placeholder="請輸入內容">
+        <div class="ml-5" type="button">新增</div>
       </div>
-      <div class="w-full flex gap-3">
-        <div class="bg-gray-600 p-2 rounded" data-search="all">全部</div>
-        <div class="bg-gray-600 p-2 rounded" data-search="complete">已執行</div>
-        <div class="bg-gray-600 p-2 rounded" data-search="incomplete">未執行</div>
+      <div class="w-full flex gap-3 mt-3">
+        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = ''">全部</div>
+        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = 'complete'">已執行</div>
+        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = 'incomplete'">未執行</div>
       </div>
       <div class="w-full h-[70%]">
         <div class="flex justify-around mt-5 mb-2">
@@ -39,4 +54,6 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
