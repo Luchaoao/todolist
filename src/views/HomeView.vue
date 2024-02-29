@@ -2,18 +2,26 @@
 export default {
   data() {
 		return {
-			selectedTab:'',
-      arr:[],
+      textValue: '',
+      data:[
+        {
+          id:1,
+          checkbox:false,
+          content:'none',
+        }
+      ],
 		};
 	},
   methods: {
-		// 篩選使用者資料
-		filterUserData() {
-			if (!this.selectedTab) {
-				return this.arr;
-			}
-			return this.arr.filter(arr => arr.checkbox === this.selectedTab);
-		},
+    // 新增資料
+    add(){
+      // console.log(this.textValue);
+      if(this.textValue == ''){
+        alert('請輸入備忘錄事項');
+      }else{
+        data.push(textValue);
+      };
+    },
 	},
 };
 </script>
@@ -22,13 +30,13 @@ export default {
   <div class=" w-full h-screen flex justify-center items-center">
     <div class="w-[75%] h-[90%] flex bg-slate-400 flex-col p-5 rounded">
       <div class="w-full flex">
-        <input type="text" id="" class="w-[75%] rounded p-1" placeholder="請輸入內容">
-        <div class="ml-5 leading-8 bg-slate-700 p-2 rounded" type="button">新增</div>
+        <input type="text" id="" class="w-[75%] rounded p-1 text-black" placeholder="請輸入內容" v-model="textValue">
+        <div class="ml-5 leading-8 bg-slate-700 p-2 rounded cursor-pointer" type="button" @click="add()">新增</div>
       </div>
       <div class="w-full flex gap-3 mt-8">
-        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = ''">全部</div>
-        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = 'complete'">已執行</div>
-        <div class="bg-gray-600 p-2 rounded" @click="selectedTab = 'incomplete'">未執行</div>
+        <div class="bg-gray-600 p-2 rounded cursor-pointer" @click="selectedTab = ''">全部</div>
+        <div class="bg-gray-600 p-2 rounded cursor-pointer" @click="selectedTab = 'complete'">已執行</div>
+        <div class="bg-gray-600 p-2 rounded cursor-pointer" @click="selectedTab = 'incomplete'">未執行</div>
       </div>
       <div class="w-full h-[70%]">
         <div class="flex justify-around mt-5 mb-2">
