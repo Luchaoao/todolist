@@ -11,9 +11,9 @@ export default {
         <div class="add-Todo" type="button">新增</div>
       </div>
       <div class="w-full flex gap-3">
-        <div class="bg-gray-600 hover:bg-gray-300 p-2 rounded" data-search="all">全部</div>
-        <div class="bg-gray-600 hover:bg-gray-300 p-2 rounded" data-search="complete">已執行</div>
-        <div class="bg-gray-600 hover:bg-gray-300 p-2 rounded" data-search="incomplete">未執行</div>
+        <div class="bg-gray-600 p-2 rounded" data-search="all">全部</div>
+        <div class="bg-gray-600 p-2 rounded" data-search="complete">已執行</div>
+        <div class="bg-gray-600 p-2 rounded" data-search="incomplete">未執行</div>
       </div>
       <div class="w-full h-[70%]">
         <div class="flex justify-around mt-5 mb-2">
