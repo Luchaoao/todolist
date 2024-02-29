@@ -5,24 +5,15 @@ export default {
       show: 'all',
       textValue: '',
       selectedTab: '',
-      data: [
-        {
-          id: 1,
-          checkbox: false,
-          content: 'none',
-        },
-      ],
+      data: [],
     };
   },
-  // mounted: {
-  //   // 抓取local資料
-  //   takeLocal() {
-  //     if (localStorage.getItem('todoList')) {
-  //       // console.log(localStorage.getItem('todoList'));
-  //       arr = JSON.parse(localStorage.getItem('todoList'))
-  //     }
-  //   },
-  // },
+  mounted() {
+    // 抓取local資料
+    if (localStorage.getItem('todoList')) {
+      this.data = JSON.parse(localStorage.getItem('todoList'))
+    }
+  },
   computed: {
     filterUserData() {
       if (this.show === 'all') {
@@ -48,7 +39,7 @@ export default {
     },
     // 新增資料
     add() {
-      const lastItem = this.data.at(-1).id ?? 0;
+      const lastItem = this.data.at(-1) ?? 0;
       if (this.textValue == '') {
         alert('請輸入備忘錄事項');
       } else {
@@ -59,7 +50,6 @@ export default {
         }
         this.data.push(obj);
       };
-      console.log(this.data);
       this.textValue = '';
     },
     // 編輯資料
@@ -69,18 +59,19 @@ export default {
     // 刪除資料
     deleteData(index) {
       this.data.splice(index, 1);
+      // filter 也可使用
     },
     // 儲存至local
-    // saveLocal() {
-    //   if (this.data.length === 0) {
-    //     localStorage.removeItem('todoList');
-    //   } else {
-    //     // 製作成JSON格式，以利儲存至localStorage
-    //     const arrData = JSON.stringify(this.data);
-    //     // localStorage存入數據
-    //     localStorage.setItem('todoList', arrData);
-    //   }
-    // },
+    saveLocal() {
+      if (this.data.length === 0) {
+        localStorage.removeItem('todoList');
+      } else {
+        // 製作成JSON格式，以利儲存至localStorage
+        const arrData = JSON.stringify(this.data);
+        // localStorage存入數據
+        localStorage.setItem('todoList', arrData);
+      }
+    },
   },
 };
 </script>
@@ -113,12 +104,13 @@ export default {
             </div>
             <div class="m1 w-1/3">{{ item.content }}</div>
             <div class="btn-box w-1/3 m1 flex gap-2">
-              <button class="bg-gray-600 p-2 rounded" @click="edit(index)">編輯</button>
+              <button class="bg-gray-600 p-2 rounded" @click="edit(index)">編輯
+              </button>
               <button class="bg-gray-600 p-2 rounded" @click="deleteData(index)">刪除</button>
             </div>
           </div>
         </div>
-        <button class="bg-gray-600 p-2 rounded mt-5 ms-auto" type="button" @click="saveLocal">save local</button>
+        <button class="bg-gray-600 p-2 rounded mt-5 ms-auto" type="button" @click="saveLocal">save to local</button>
       </div>
     </div>
   </div>
