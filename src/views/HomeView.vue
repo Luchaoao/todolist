@@ -39,7 +39,7 @@ export default {
     },
     // 新增資料
     add() {
-      const lastItem = this.data.at(-1) ?? 0;
+      const lastItem = this.data.length ? this.data[this.data.length - 1].id : 0;;
       if (this.textValue == '') {
         alert('請輸入備忘錄事項');
       } else {
